@@ -1,0 +1,3 @@
+export const GET_ENTRIES = "GET_ENTRIES";
+export const SET_HOME_ENTRIES = "SET_HOME_ENTRIES";
+export const SET_SEARCH_ENTRIES = "SET_SEARCH_ENTRIES";
