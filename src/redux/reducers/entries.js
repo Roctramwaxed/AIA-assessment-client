@@ -12,12 +12,12 @@ const entries = (state = initialState, action) => {
     case type.SET_HOME_ENTRIES:
       return {
         ...state,
-        entries: payload,
+        homeEntries: payload,
       };
     case type.SET_SEARCH_ENTRIES:
       return {
         ...state,
-        entries: payload,
+        searchEntries: payload,
       };
     default:
       return state;
