@@ -7,6 +7,7 @@ const ImageCard = ({ title, imageSrc, desc }) => {
       style={{
         maxWidth: "25vw",
         maxHeight: "50vh",
+        marginBottom: '1.5rem'
       }}
     >
       <Card.Header>{title}</Card.Header>
