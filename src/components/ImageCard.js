@@ -6,11 +6,10 @@ const ImageCard = ({ title, imageSrc, desc }) => {
     <Card
       style={{
         maxWidth: "25vw",
-        maxHeight: "50vh",
-        marginBottom: '1.5rem'
+        marginBottom: "1.5rem",
       }}
     >
-      <Card.Header>{title}</Card.Header>
+      <Card.Header style={{ minHeight: "1rem" }}>{title}</Card.Header>
       <Card.Img variant="top" src={imageSrc} />
       {desc && (
         <Card.Body>
