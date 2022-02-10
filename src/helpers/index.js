@@ -6,7 +6,7 @@ export const api = axios.create({
   // headers: {
   //   'X-Requested-With': 'XMLHttpRequest',
   // },
-  baseURL: "https://aia-assessment-server.herokuapp.com",
+  baseURL: "http://3.16.128.83:3000",
 });
 
 export const notification = (type, text, delay = 2000) => {
