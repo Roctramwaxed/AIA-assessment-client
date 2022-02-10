@@ -33,22 +33,19 @@ const Main = () => {
       if (
         data.length < 15 ||
         (searchQuery &&
-          dataEntries[dataEntries.length - 1].id._text ===
-            data[data.length - 1].id._text)
+          dataEntries[dataEntries.length - 1].id === data[data.length - 1].id)
       ) {
         setEndOfLine(true);
       }
       let processedData = "";
       if (more) {
         processedData = data.slice(
-          data.findIndex(
-            (e) => e.id._text === dataEntries[dataEntries.length - 1].id._text
-          )
+          data.findIndex((e) => e.id === dataEntries[dataEntries.length - 1].id)
         );
 
         if (
           processedData.length === 1 &&
-          dataEntries.find((e) => e.id._text === processedData[0].id._text)
+          dataEntries.find((e) => e.id === processedData[0].id)
         ) {
           processedData = [];
         }
@@ -121,12 +118,7 @@ const Main = () => {
                       return (
                         <ImageCard
                           key={index}
-                          title={e.title._text || "Untitled"}
-                          imageSrc={
-                            e.link.find(
-                              (link) => link?._attributes.type === "image/jpeg"
-                            )?._attributes.href
-                          }
+                          entry={e}
                         />
                       );
                     }
@@ -141,7 +133,7 @@ const Main = () => {
             ) : loading ? (
               <ReactLoading
                 type="bars"
-                style={{ height: "auto", width: "25vh", color: "#1572A1" }}
+                style={{ height: "3rem", width: "5rem", color: "#1572A1" }}
               />
             ) : (
               <Button
