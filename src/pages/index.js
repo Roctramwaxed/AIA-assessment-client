@@ -7,6 +7,7 @@ import {
   Badge,
   FormControl,
   Button,
+  Alert,
 } from "react-bootstrap";
 import ReactLoading from "react-loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -106,6 +107,9 @@ const Main = () => {
         }}
       >
         <Container>
+          <Alert variant="danger">
+            DISCLAIMER! All content from this website is from a 3rd party api, therefore I cannot control what the 3rd party returns. 
+          </Alert>
           <Row className="mb-4 d-flex justify-content-center">
             <Col md="6">
               <FormControl
