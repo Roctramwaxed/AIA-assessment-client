@@ -14,7 +14,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import TopBar from "../components/TopBar";
 import ImageCard from "../components/ImageCard";
-import { api } from "../helpers";
+import { api, notification } from "../helpers";
 
 const Main = () => {
   const [dataEntries, setDataEntries] = useState([]);
@@ -47,12 +47,28 @@ const Main = () => {
           processedData.length === 1 &&
           dataEntries.find((e) => e.id === processedData[0].id)
         ) {
+          notification(
+            "warning",
+            "No new food for now :( Try again in a few moments~"
+          );
           processedData = [];
+        } else {
+          notification(
+            "success",
+            `Got ${processedData.length} new foods for you!`
+          );
         }
 
         processedData = [...dataEntries, ...processedData];
+      } else {
+        notification("success", `Got you some food, enjoy!`);
       }
       setDataEntries(processedData || data);
+    } else {
+      notification(
+        "error",
+        `Something went wrong in our kitchen, sorry about that :( Try again in a few moments.`
+      );
     }
     setLoading(false);
   };
@@ -115,12 +131,7 @@ const Main = () => {
                 <Col key={modValue}>
                   {dataEntries.map((e, index) => {
                     if (index % 6 === modValue) {
-                      return (
-                        <ImageCard
-                          key={index}
-                          entry={e}
-                        />
-                      );
+                      return <ImageCard key={index} entry={e} />;
                     }
                   })}
                 </Col>
